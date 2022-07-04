@@ -13,18 +13,18 @@ public class Assignment {
 			List<String> DATE = new ArrayList<>();
 			Statement stmt = conn.createStatement();
 			ResultSet rset = stmt.executeQuery("select distinct DATE(Datetime) DAY from Listen_log");
-			System.out.println("Â÷Æ® ±â·Ï ³¯Â¥ ¸ñ·Ï");
+			System.out.println("ì°¨íŠ¸ ê¸°ë¡ ë‚ ì§œ ëª©ë¡");
 			while(rset.next()) {
 				System.out.println(rset.getString("DAY"));
 				DATE.add(rset.getString("DAY"));
 			}
 			String date="";
-			System.out.println("Â÷Æ® ±â·ÏÀ» º¸°í½ÍÀº ³¯Â¥¸¦ Á¤È®È÷ ÀÔ·ÂÇÏ¼¼¿ä(¿¹:2021-10-30)");
+			System.out.println("ì°¨íŠ¸ ê¸°ë¡ì„ ë³´ê³ ì‹¶ì€ ë‚ ì§œë¥¼ ì •í™•íˆ ì…ë ¥í•˜ì„¸ìš”(ì˜ˆ:2021-10-30)");
 			date=sc.nextLine();
 			Boolean IsContains = DATE.contains(date);
 			if(!IsContains) {
 				while(!IsContains) {
-					System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä");
+					System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”");
 					date=sc.nextLine();
 					IsContains = DATE.contains(date);
 					if (IsContains) {
@@ -41,7 +41,7 @@ public class Assignment {
 			
 			int i = 1;
 			while(rset.next()) {
-				System.out.print(i+"À§ "+"ID:"+rset.getString("Music_ID")+" ");
+				System.out.print(i+"ìœ„ "+"ID:"+rset.getString("Music_ID")+" ");
 				Statement stmtSub = conn.createStatement();
 				String subSql="select Music.title from Music natural join Sing where Sing.Music_ID=?;";
 				PreparedStatement pstmtSub=conn.prepareStatement(subSql);
@@ -102,12 +102,12 @@ public class Assignment {
 			Scanner sc = new Scanner(System.in);
 			String MusicTitle = " ";
 			String MusicID = " ";
-			System.out.println("¿øÇÏ´Â °îÀÇ ID¸¦ Á¤È®È÷ ÀÔ·ÂÇØÁÖ¼¼¿ä");
+			System.out.println("ì›í•˜ëŠ” ê³¡ì˜ IDë¥¼ ì •í™•íˆ ì…ë ¥í•´ì£¼ì„¸ìš”");
 			MusicID = sc.nextLine();
 			Boolean IsContains = ID.contains(MusicID);
 			if(!IsContains) {
 				while(!IsContains) {
-					System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä");
+					System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”");
 					MusicID=sc.next();
 					IsContains = ID.contains(MusicID);
 					if (IsContains) {
@@ -148,7 +148,7 @@ public class Assignment {
 			pstmt.setString(7, MusicID);
 			rset = pstmt.executeQuery();
 			
-			System.out.println(MusicTitle+"ÀÇ À¯»ç°î ÃßÃµ");
+			System.out.println(MusicTitle+"ì˜ ìœ ì‚¬ê³¡ ì¶”ì²œ");
 			while(rset.next()) {
 				System.out.print("ID:"+rset.getString("Music_ID")+" ");
 				Statement stmtSub = conn.createStatement();
@@ -192,10 +192,10 @@ public class Assignment {
 			int func=0;
 			
 			while(func!=3){
-				System.out.println("±â´ÉÀ» ¼±ÅÃÇÏ¼¼¿ä");
-				System.out.println("1.Â÷Æ® ±â·Ï");
-				System.out.println("2.À¯»ç°î ÃßÃµ");
-				System.out.println("3.Á¾·á");
+				System.out.println("ê¸°ëŠ¥ì„ ì„ íƒí•˜ì„¸ìš”");
+				System.out.println("1.ì°¨íŠ¸ ê¸°ë¡");
+				System.out.println("2.ìœ ì‚¬ê³¡ ì¶”ì²œ");
+				System.out.println("3.ì¢…ë£Œ");
 				System.out.println(" ");
 				func = sc.nextInt();
 				
